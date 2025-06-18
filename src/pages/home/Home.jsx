@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
@@ -12,18 +10,34 @@ const Home = ()=>{
         <div className={styles.home_container}>
             <div className={styles.model_container}>                <Canvas 
                     className={styles.canvas}                    camera={{
-                        position: [0, 270, 300],
-                        fov: 8,
+                        position: [0, 150, 300],
+                        fov: 6, // 6
                         near: 0.1,
-                        far: 1000
+                        far: 5000
                     }}>
                     <OrbitControls 
-                        enableZoom={true} 
+                        enableZoom={true}
+                        enableRotate={true}
                         enablePan={false}
-                        target={[0, 180, 0]}
+                        target={[-20, 170, 0]}
+                        minDistance={100}
+                        maxDistance={800}
+                    />     
+
+                    <ambientLight intensity={0.1} />
+                    
+                    <directionalLight 
+                        color="#ffffff" 
+                        position={[-200, 150, 200]} 
+                        intensity={1}
                     />
-                    <pointLight position={[10, 10, 10]} />
-                    <ambientLight intensity={1.5} />
+                    <directionalLight 
+                        color="#f30000" 
+                        position={[200, 100, 150]} 
+                        intensity={1}
+                    />
+                    
+                    
                     <Kratos />
                 </Canvas>
             </div>
