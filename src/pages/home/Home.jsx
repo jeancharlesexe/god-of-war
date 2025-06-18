@@ -1,11 +1,51 @@
 import { Link } from "react-router-dom";
 
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+
+import Kratos from '../../components/models/Kratos/Kratos';
+
+import styles from './Home.module.css'
+
 const Home = ()=>{
     return(
-        <>
-            <h1>Home Page</h1>
-            <Link to="/login">Login here</Link>
-        </>
+        <div className={styles.home_container}>
+            <div className={styles.model_container}>
+                <Canvas 
+                    className={styles.canvas}
+                    camera={{
+                        position: [0, 10, 15],
+                        fov: 40,
+                        near: 0.1,
+                        far: 6000
+                    }}>
+                    <OrbitControls 
+                        enableZoom={true} 
+                        enablePan={false}
+                        target={[0, 4, 0]}
+                    />
+                    <pointLight position={[10, 10, 10]} />
+                    <ambientLight intensity={4} />
+                    <Kratos />
+                </Canvas>
+            </div>
+            <div className={styles.home_content}>
+                <section className={styles.section}>
+                    <h1>God of Waraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
+                    <p>Conteúdo da primeira seção...</p>
+                </section>
+                
+                <section className={styles.section}>
+                    <h2>História</h2>
+                    <p>Conteúdo da segunda seção...</p>
+                </section>
+                
+                <section className={styles.section}>
+                    <h2>Personagens</h2>
+                    <p>Conteúdo da terceira seção...</p>
+                </section>
+            </div>
+        </div>
     )
 }
 
