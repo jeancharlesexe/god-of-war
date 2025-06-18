@@ -2,7 +2,7 @@ import { useGLTF } from '@react-three/drei';
 import { useEffect } from 'react';
 
 const Kratos = () => {
-  const { scene } = useGLTF('/models/kratos.glb'); 
+  const { scene } = useGLTF('/models/kratos-rigged.glb'); 
 
   
     
@@ -15,11 +15,13 @@ const Kratos = () => {
       }
     });
   }, [scene]);
-  
-
-  return (
+    return (
     <group>
-      <primitive object={scene} scale={0.5} />
+      <primitive 
+        object={scene} 
+        scale={0.5} 
+        rotation={[0, 0, 0]}
+      />
     </group>
   )
 }

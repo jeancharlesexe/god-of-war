@@ -10,22 +10,20 @@ import styles from './Home.module.css'
 const Home = ()=>{
     return(
         <div className={styles.home_container}>
-            <div className={styles.model_container}>
-                <Canvas 
-                    className={styles.canvas}
-                    camera={{
-                        position: [0, 10, 15],
-                        fov: 40,
+            <div className={styles.model_container}>                <Canvas 
+                    className={styles.canvas}                    camera={{
+                        position: [0, 270, 300],
+                        fov: 8,
                         near: 0.1,
-                        far: 6000
+                        far: 1000
                     }}>
                     <OrbitControls 
                         enableZoom={true} 
                         enablePan={false}
-                        target={[0, 4, 0]}
+                        target={[0, 180, 0]}
                     />
                     <pointLight position={[10, 10, 10]} />
-                    <ambientLight intensity={4} />
+                    <ambientLight intensity={1.5} />
                     <Kratos />
                 </Canvas>
             </div>
