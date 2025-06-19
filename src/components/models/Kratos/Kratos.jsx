@@ -21,6 +21,13 @@ const Kratos = () => {
         child.frustumCulled = false;
         child.geometry.computeBoundingBox();
         child.geometry.computeBoundingSphere();
+        
+        if (child.material) {
+          child.material.roughness = 0.9; 
+          child.material.metalness = 1; 
+          child.material.reflectivity = 3;
+          child.material.envMapIntensity = 6;
+        }
       }
     });
   }, [scene]);

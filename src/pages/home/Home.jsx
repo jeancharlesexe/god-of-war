@@ -24,17 +24,17 @@ const Home = ()=>{
                         maxDistance={800}
                     />     
 
-                    <ambientLight intensity={0.1} />
+                    <ambientLight intensity={0.5} />
                     
                     <directionalLight 
                         color="#ffffff" 
                         position={[-200, 150, 200]} 
-                        intensity={1}
+                        intensity={2}
                     />
                     <directionalLight 
                         color="#f30000" 
                         position={[200, 100, 150]} 
-                        intensity={1}
+                        intensity={2}
                     />
                     
                     
